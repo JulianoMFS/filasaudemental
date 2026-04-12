@@ -5,7 +5,7 @@ Todas as mudanças relevantes do projeto serão documentadas neste arquivo.
 O formato segue [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e o versionamento adota [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
-## [1.0.0] - 2026-04-12
+### [1.0.0] - 2026-04-12
 
 ### Adicionado
 - Interface CLI completa com menu interativo
