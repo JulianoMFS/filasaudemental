@@ -202,7 +202,7 @@ Veja o [CHANGELOG.md](CHANGELOG.md) para o histórico de mudanças.
 
 ## Repositório Público
 
-[https://github.com/JulianoMFS/fila-saude-mental](https://github.com/JulianoMFS/fila-saude-mental)
+[https://github.com/JulianoMFS/filasaudemental](https://github.com/JulianoMFS/filasaudemental)
 
 ---
 
