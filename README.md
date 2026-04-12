@@ -8,13 +8,13 @@
 
 ## Descrição do Problema Real:
 
-No Sistema Único de Saúde (SUS), os serviços de saúde mental, especialmente aqueles destinados ao público infantojuvenil, enfrentam filas de espera que podem ultrapassar meses ou até anos. Centros como os CAPS (Centros de Atenção Psicossocial) e unidades especializadas recebem demandas crescentes, mas a gestão dessas filas frequentemente 
+No Sistema Único de Saúde (SUS), os serviços de saúde mental, especialmente aqueles destinados ao público infantojuvenil, enfrentam filas de espera que podem ultrapassar meses ou até anos (+510 dias). Centros como os CAPS (Centros de Atenção Psicossocial, Adolescentro e Centro de Orientação Médico-Psicopedagógica - COMPP, no Distrito Federal) e unidades especializadas recebem demandas crescentes, mas a gestão dessas filas frequentemente podem ocasionar erros de classificação e direcionamento vindos da Atenção Primária à Saúde (APS) e hospitais.
 
 Isso resulta em:
 - Pacientes de alto risco aguardando o mesmo tempo que casos não urgentes;
 - Falta de visibilidade sobre o tamanho e perfil da demanda represada;
-- Dificuldade em gerar dados para gestores e órgãos de controle;
-- Perda de pacientes que desistem sem registro.
+- Dificuldade em gerar dados para gestores e órgãos de controle (MPDFT, DPDF e TCDF);
+- Perda de pacientes que desistem sem registro, com busca de atendimento na rede privada de saúde.
 
 ## Proposta da Solução:
 
