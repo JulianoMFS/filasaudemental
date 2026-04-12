@@ -1,7 +1,5 @@
 # Fila Saúde Mental
 
-[CI — Lint e Testes](https://github.com/SEU_USUARIO/fila-saude-mental/actions/workflows/ci.yml/badge.svg)](https://github.com/SEU_USUARIO/fila-saude-mental/actions/workflows/ci.yml)
-
 **Gerenciador de Fila para Serviços de Saúde Mental no SUS**
 
 > Versão atual: **1.0.0**
