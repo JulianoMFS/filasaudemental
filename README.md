@@ -8,7 +8,7 @@
 
 ## Descrição do Problema Real:
 
-No Sistema Único de Saúde (SUS), os serviços de saúde mental, especialmente aqueles destinados ao público infantojuvenil, enfrentam filas de espera que podem ultrapassar meses ou até anos (+510 dias). Centros como os CAPS (Centros de Atenção Psicossocial, Adolescentro e Centro de Orientação Médico-Psicopedagógica - COMPP, no Distrito Federal) e unidades especializadas recebem demandas crescentes, mas a gestão dessas filas frequentemente podem ocasionar erros de classificação e direcionamento vindos da Atenção Primária à Saúde (APS) e hospitais.
+No Sistema Único de Saúde (SUS), os serviços de saúde mental, especialmente aqueles destinados ao público infantojuvenil, enfrentam filas de espera que podem ultrapassar meses ou até anos (+510 dias). Centros como os CAPS (Centros de Atenção Psicossocial, Adolescentro e Centro de Orientação Médico-Psicopedagógica - COMPP, no Distrito Federal) e unidades especializadas recebem demandas crescentes, mas a gestão dessas filas frequentemente podem ocasionar erros de classificação e direcionamento incorretos originados da Atenção Primária à Saúde (APS) e de hospitais.
 
 Isso resulta em:
 - Pacientes de alto risco aguardando o mesmo tempo que casos não urgentes;
@@ -18,19 +18,19 @@ Isso resulta em:
 
 ## Proposta da Solução:
 
-O **Fila Saúde Mental** é uma aplicação CLI (linha de comando) que permite a equipes de saúde mental gerenciar a fila de espera de forma organizada, com **classificação de risco** baseada no protocolo Manchester adaptado (5 níveis de urgência). A fila é automaticamente ordenada por prioridade: pacientes com maior risco são atendidos primeiro; em caso de empate, quem está esperando há mais tempo tem preferência.
+O **Fila Saúde Mental** é uma aplicação CLI (linha de comando) que permite as equipes de saúde mental gerenciar a fila de espera de forma organizada, com **classificação de risco** baseada no protocolo Manchester adaptado (5 níveis de urgência - vermelho, laranja, amarelo, verde e azul). A fila é automaticamente ordenada por prioridade: pacientes com maior risco (vermelho) são atendidos primeiro; em caso de empate, quem está esperando há mais tempo tem preferência.
 
 A aplicação oferece cadastro com validação, registro de atendimento, remoção por desistência, busca por CPF e um painel de estatísticas com contagem por classificação de risco e faixa etária.
 
 ## Público-Alvo:
 
-- Profissionais de saúde mental em unidades do SUS (CAPS, centros especializados - COMPP e Adolescentro)
+- Profissionais de saúde mental em unidades do SUS (CAPS, Centros especializados - COMPP e Adolescentro, e ambulatórios)
 - Equipes de regulação e gestão de filas em secretarias de saúde
 - Estudantes e pesquisadores de saúde pública
 
 ## Funcionalidades Principais:
 
-- **Cadastro de pacientes** com validação de CPF, CNS, idade e dados obrigatórios
+- **Cadastro de pacientes** com validação de CPF, idade e dados obrigatórios
 - **Classificação de risco** em 5 níveis (Vermelho, Laranja, Amarelo, Verde, Azul)
 - **Fila priorizada** automaticamente por risco e tempo de espera
 - **Registro de atendimento** com data/hora
@@ -114,7 +114,7 @@ Ao iniciar, o sistema exibirá um menu interativo:
   Informe o número da classificação (1-5): 3
   Demanda / Motivo do encaminhamento: Ansiedade grave com ideação suicida
 
-  ✓ Paciente 'Maria Silva' adicionado com sucesso!
+  ✓ Paciente 'João da Silva' adicionado com sucesso!
     Classificação: AMARELO
 ```
 
@@ -198,7 +198,7 @@ Veja o [CHANGELOG.md](CHANGELOG.md) para o histórico de mudanças.
 
 ## Autor:
 
-**Juliano** Disciplina: Bootcamp II, Turma A - 0226, UniCEUB, 2026/1
+**Juliano Morais** Disciplina: Bootcamp II, Turma A - 0226, UniCEUB, 2026/1
 
 ## Repositório Público
 
