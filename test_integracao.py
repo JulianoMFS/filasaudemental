@@ -1,16 +1,11 @@
 """
-test_integracao.py — Testes de integração com o serviço externo ViaCEP.
+test_integracao.py - Testes de integração com o serviço externo ViaCEP.
 
-Diferentemente dos testes unitários (test_modelos.py), estes testes
-validam a comunicação real da aplicação com a API externa, garantindo
-que o fluxo de dados não quebra sob condições variadas.
+Diferentemente dos testes unitários (test_modelos.py), estes testes validam a comunicação real da aplicação com a API externa, garantindo que o fluxo de dados não quebra sob condições variadas.
 
 Estratégia de teste:
-  - Teste de integração real: usa um CEP conhecido do DF (Esplanada dos
-    Ministérios — CEP público e estável) para validar o contrato da API.
-  - Teste com mock (unittest.mock): isola a lógica de tratamento de erros
-    sem depender de conectividade de rede, garantindo CI/CD verde mesmo
-    em ambientes sem internet.
+  - Teste de integração real: usa um CEP conhecido do DF (Esplanada dos Ministérios — CEP público e estável) para validar o contrato da API.
+  - Teste com mock (unittest.mock): isola a lógica de tratamento de erros sem depender de conectividade de rede, garantindo CI/CD verde mesmo em ambientes sem internet.
 
 Referência: pytest-mock / unittest.mock (stdlib)
 """
@@ -28,10 +23,8 @@ from src.servicos import (
     _mapear_regiao_saude_df,
 )
 
-# ---------------------------------------------------------------------------
 # Testes de integração REAIS (dependem de conexão com a internet)
 # Marcados com @pytest.mark.integration para permitir exclusão no CI offline
-# ---------------------------------------------------------------------------
 
 @pytest.mark.integration
 def test_consultar_cep_real_valido():
@@ -70,9 +63,7 @@ def test_consultar_cep_formato_com_hifen():
     assert resultado["cep"] == "70050900"
 
 
-# ---------------------------------------------------------------------------
 # Testes com MOCK — isolados de rede, adequados para CI/CD
-# ---------------------------------------------------------------------------
 
 @patch("src.servicos.requests.get")
 def test_consultar_cep_mock_sucesso(mock_get):
@@ -159,9 +150,7 @@ def test_consultar_cep_formato_invalido_letras():
         consultar_cep("ABCDEFGH")
 
 
-# ---------------------------------------------------------------------------
 # Testes do mapeamento de Regiões de Saúde do DF
-# ---------------------------------------------------------------------------
 
 def test_mapear_regiao_saude_ceilandia():
     regiao = _mapear_regiao_saude_df("Ceilândia Norte", "DF")
@@ -178,9 +167,7 @@ def test_mapear_regiao_saude_nao_identificado():
     assert "não identificada" in regiao.lower()
 
 
-# ---------------------------------------------------------------------------
 # Testes de formatação
-# ---------------------------------------------------------------------------
 
 def test_formatar_endereco_completo():
     dados = {
