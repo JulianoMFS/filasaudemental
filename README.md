@@ -2,7 +2,7 @@
 
 **Gerenciador de Fila para Serviços de Saúde Mental no SUS**
 
-> Versão atual: **1.0.0**
+> Versão atual: **1.1.0**
 
 ---
 
