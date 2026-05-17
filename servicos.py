@@ -1,9 +1,7 @@
 """
 servicos.py — Integração com APIs externas.
 
-Módulo responsável pela comunicação com serviços externos utilizados
-pelo Fila Saúde Mental. Atualmente integra a API ViaCEP para validação
-e enriquecimento de dados de endereço dos pacientes.
+Módulo responsável pela comunicação com serviços externos utilizados pelo Fila Saúde Mental. Atualmente integra a API ViaCEP para validação e enriquecimento de dados de endereço dos pacientes.
 
 API: ViaCEP (https://viacep.com.br)
 Tipo: REST / HTTP GET — pública, gratuita, sem autenticação.
