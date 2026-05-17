@@ -6,25 +6,19 @@ feat: integrar API ViaCEP para enriquecimento de dados de endereço do paciente
 ## Corpo da Issue:
 
 ### Contexto
+O formulário de cadastro atual coleta nome, CPF, idade, classificação de risco e motivo do encaminhamento, mas não registra a localização do paciente.
 
-O formulário de cadastro atual coleta nome, CPF, idade, classificação de risco
-e motivo do encaminhamento, mas não registra a localização do paciente.
+No contexto da RAPS-DF, saber a Região de Saúde do paciente é fundamental para direcionar o atendimento ao CAPS correto (ex.: paciente de Ceilândia deve ser referenciado ao CAPS Oeste/Sudoeste, não ao CAPS da Região Central).
 
-No contexto da RAPS-DF, saber a Região de Saúde do paciente é fundamental para
-direcionar o atendimento ao CAPS correto (ex.: paciente de Ceilândia deve ser
-referenciado ao CAPS Oeste/Sudoeste, não ao CAPS Central).
-
-### Solução proposta
-
+### Solução proposta:
 Integrar a **API pública ViaCEP** (https://viacep.com.br) ao fluxo de cadastro.
 
-O campo CEP será **opcional** — se informado, o sistema consulta a API e:
+O campo CEP será **obrigatório** — o sistema consulta a API e:
 1. Preenche automaticamente logradouro, bairro, cidade e UF.
 2. Mapeia o bairro do DF à Região de Saúde correspondente (SES-DF).
 3. Armazena `cep` e `regiao_saude` no registro do paciente.
 
 ### Critérios de aceite
-
 - [ ] `src/servicos.py` criado com `consultar_cep()`, `formatar_endereco()` e `ErroConsultaCEP`.
 - [ ] Integração visível no CLI: campo CEP com feedback em tempo real.
 - [ ] Campos `cep` e `regiao_saude` persistidos no JSON.
@@ -34,16 +28,13 @@ O campo CEP será **opcional** — se informado, o sistema consulta a API e:
 - [ ] README atualizado com link do deploy e documentação da API.
 
 ### API escolhida: ViaCEP
-
-- **URL:** `https://viacep.com.br/ws/{cep}/json/`
-- **Método:** HTTP GET
-- **Autenticação:** nenhuma
-- **Gratuita:** sim
-- **Relevância:** serviço brasileiro de CEP, mantido pela comunidade,
-  amplamente utilizado em sistemas do setor público.
+- URL: `https://viacep.com.br/ws/{cep}/json/`
+- Método: HTTP GET
+- Autenticação: nenhuma
+- Gratuita: sim
+- Relevância: serviço brasileiro de CEP, mantido pela comunidade, amplamente utilizado em sistemas do setor público.
 
 ### Branch
-
 `entrega-intermediaria`
 
 ### Fecha
