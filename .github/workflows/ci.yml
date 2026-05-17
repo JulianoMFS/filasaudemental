@@ -1,11 +1,9 @@
 """
-cli_patch.py — Trecho de integração a ser inserido em src/cli.py
-               na função de cadastro de pacientes.
+cli_patch.py - Trecho de integração a ser inserido em src/cli.py na função de cadastro de pacientes.
 
 INSTRUÇÕES DE INTEGRAÇÃO:
-Localize a função `_adicionar_paciente(fila)` em src/cli.py e insira
-o bloco de CEP após a coleta do campo "Demanda / Motivo" e antes do
-objeto Paciente ser criado. Adicione o import no topo do arquivo.
+Localize a função `_adicionar_paciente(fila)` em src/cli.py e insira o bloco de CEP após a coleta do campo "Demanda / Motivo" e antes do objeto Paciente ser criado. 
+Adicione o import no topo do arquivo.
 
 IMPORT A ADICIONAR no topo de src/cli.py:
     from src.servicos import consultar_cep, formatar_endereco, ErroConsultaCEP
