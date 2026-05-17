@@ -1,0 +1,91 @@
+"""
+cli_patch.py — Trecho de integração a ser inserido em src/cli.py
+               na função de cadastro de pacientes.
+
+INSTRUÇÕES DE INTEGRAÇÃO:
+Localize a função `_adicionar_paciente(fila)` em src/cli.py e insira
+o bloco de CEP após a coleta do campo "Demanda / Motivo" e antes do
+objeto Paciente ser criado. Adicione o import no topo do arquivo.
+
+IMPORT A ADICIONAR no topo de src/cli.py:
+    from src.servicos import consultar_cep, formatar_endereco, ErroConsultaCEP
+
+BLOCO A INSERIR na função _adicionar_paciente(), após coletar os dados
+básicos (nome, CPF, idade, risco, motivo):
+"""
+
+# ── Trecho para inserção em src/cli.py ─────────────────────────────────────
+
+TRECHO_CLI = """
+    # --- Integração ViaCEP: coleta e enriquece dados de localização --------
+    print("\\nCEP do paciente (opcional — Enter para pular): ", end="")
+    cep_input = input().strip()
+
+    dados_endereco = {}
+    regiao_saude_sugerida = ""
+
+    if cep_input:
+        print("  🔍 Consultando endereço via ViaCEP...", end=" ", flush=True)
+        try:
+            dados_endereco = consultar_cep(cep_input)
+            print("✓")
+            print(f"  📍 {formatar_endereco(dados_endereco)}")
+            print(f"  🏥 Região de Saúde sugerida: {dados_endereco['regiao_saude']}")
+            regiao_saude_sugerida = dados_endereco.get("regiao_saude", "")
+        except ErroConsultaCEP as e:
+            print(f"\\n  ⚠️  {e}")
+            print("  Prosseguindo sem dados de endereço.")
+    # -----------------------------------------------------------------------
+
+    # Criar paciente com campo de região de saúde enriquecido
+    paciente = Paciente(
+        nome=nome,
+        cpf=cpf,
+        idade=idade,
+        classificacao=classificacao,
+        demanda=demanda,
+        regiao_saude=regiao_saude_sugerida,   # campo novo no modelo
+        cep=dados_endereco.get("cep", ""),     # campo novo no modelo
+    )
+"""
+
+# ── Alterações necessárias em src/modelos.py ───────────────────────────────
+
+PATCH_MODELOS = """
+# Adicionar os campos opcionais à dataclass/classe Paciente em modelos.py:
+
+@dataclass
+class Paciente:
+    nome: str
+    cpf: str
+    idade: int
+    classificacao: ClassificacaoRisco
+    demanda: str
+    # CAMPOS NOVOS — adicionados na Etapa Intermediária
+    regiao_saude: str = ""   # preenchido via ViaCEP / mapeamento RAPS-DF
+    cep: str = ""            # CEP limpo (8 dígitos) ou vazio
+    # campos gerenciados internamente
+    entrada: datetime = field(default_factory=datetime.now)
+    atendido_em: datetime | None = None
+"""
+
+# ── Exemplo de saída no CLI após integração ─────────────────────────────────
+
+EXEMPLO_SAIDA = """
+-- Adicionar Paciente --
+Nome completo: João da Silva
+CPF (somente números): 12345678901
+Idade: 34
+[...]
+Informe o número da classificação (1-5): 3
+Demanda / Motivo do encaminhamento: Ansiedade grave com ideação suicida
+
+CEP do paciente (opcional — Enter para pular): 72115-670
+  🔍 Consultando endereço via ViaCEP... ✓
+  📍 QNN 7 Conjunto G — Ceilândia Norte — Brasília / DF
+  🏥 Região de Saúde sugerida: Região de Saúde OESTE/SUDOESTE
+
+✓ Paciente 'João da Silva' adicionado com sucesso!
+Classificação: AMARELO
+Região de Saúde: Região de Saúde OESTE/SUDOESTE
+"""
