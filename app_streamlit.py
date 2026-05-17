@@ -1,9 +1,7 @@
 """
 app_streamlit.py — Interface web para deploy público (Streamlit Cloud).
 
-Converte a lógica de negócio do CLI em uma aplicação web interativa,
-mantendo todas as funcionalidades originais e adicionando visualizações
-gráficas para gestores e órgãos de controle.
+Converte a lógica de negócio do CLI em uma aplicação web interativa, mantendo todas as funcionalidades originais e adicionando visualizações gráficas para gestores e órgãos de controle.
 
 Deploy: https://filasaudemental.streamlit.app
 """
